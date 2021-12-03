@@ -10,7 +10,6 @@ class reto3:
         gamma.append(0)
         epsilon.append(1)
     return int(str(''.join(map(str, gamma))), 2) * int(str(''.join(map(str, epsilon))), 2)
-
   def main(self):
     i, array = 0, [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]]
     binario = informe.informe()[i]
