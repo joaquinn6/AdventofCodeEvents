@@ -1,6 +1,6 @@
 import informe
 
-class reto2:
+class reto3:
 
   def read_line(self, indice) -> dict:
     print(indice)
@@ -34,5 +34,5 @@ class reto2:
     result = g * e
     print('result=>' + str(result) )
 
-reto=reto2()
+reto=reto3()
 reto.main()
