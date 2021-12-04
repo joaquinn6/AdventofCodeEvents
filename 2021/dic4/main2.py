@@ -34,12 +34,10 @@ def letsPlay():
         if numero in row:
           marcados.append(str(iTab)+ '-' + str(iRow) + '-' + str(row.index(numero)))
           if tableroCheck(iTab, iRow, row.index(numero)):
-            if len(tableros) == len(tabsGanadores)+1:
-              if iTab not in tabsGanadores:
+            if iTab not in tabsGanadores:
+              if len(tableros) == len(tabsGanadores)+1:
                 lastWinner(iTab, numero)
-            else:
-              if iTab not in tabsGanadores:
-                tabsGanadores.append(iTab)
+              tabsGanadores.append(iTab)
         iRow+=1
       iTab+=1
     i+=1
