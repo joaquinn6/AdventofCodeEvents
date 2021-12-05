@@ -1,5 +1,5 @@
 import lineas
-lineas, puntos = lineas.prueba(), []
+lineas, puntos = lineas.lineas(), []
 
 def countRepetidos():
     repetidos, unicos = [], []
@@ -27,33 +27,29 @@ def makePoints(linea):
       menor, mayor = menor_mayor(linea[0], linea[2])
       for i in range(menor, mayor):
           puntos.append(str(i) + ',' + str(linea[3]))
-    elif linea[0] == linea[3] and linea[2] == linea[1]:
-      menor, mayor = menor_mayor(linea[1], linea[3])
-      for i in range(menor, mayor):
-        puntos.append(str(mayor-1-i) + ',' + str(i))
-    elif linea[0] == linea[1] and linea[2] == linea[3]: 
-      menor, mayor = menor_mayor(linea[0], linea[3])
-      for i in range(menor, mayor):
-        puntos.append(str(i) + ',' + str(i))
-    elif (linea[0] == linea[1] or linea[2] == linea[3]): 
-      menorX, mayorX = menor_mayor(linea[0], linea[2])
-      resta = mayorX-1-menorX
-      menorY, mayorY = menor_mayor(linea[1], linea[3])
-      suma = menorY + resta
-      if suma+1 == mayorY:
-        for i in range(resta+1):
-          valor = str(mayorX - i -1) + ',' + str(menorY + i)
-          puntos.append(valor)
+    # Valido si X Y 1 tienen la misma diferencia con X Y 2 respectivamente
+    elif (linea[0]>linea[2] and linea[1]>linea[3]) or (linea[0]<linea[2] and linea[1]<linea[3]):
+      menor1, mayor1 = menor_mayor(linea[0], linea[2])
+      menor2, mayor2 = menor_mayor(linea[1], linea[3])
+      resta1 = mayor1 - menor1
+      resta2 = mayor2 - menor2
+      if resta1==resta2:
+        for i in range(resta2):
+          puntos.append(str(menor1+i) + ',' + str(menor2+i))
     else:
-      menorX, mayorX = menor_mayor(linea[0], linea[2])
-      resta1 = mayorX-1-menorX
-      menorY, mayorY = menor_mayor(linea[1], linea[3])
-      resta2 = mayorY-1-menorY
-      if resta1 == resta2:
-        for i in range(resta1+1):
-          valor = str(menorX + i) + ',' + str(menorY + i)
-          puntos.append(valor)
-          
+      menor1, mayor1 = menor_mayor(linea[0], linea[2])
+      menor2, mayor2 = menor_mayor(linea[1], linea[3])
+      resta = mayor1 - menor1
+      suma = resta+menor2
+      if suma == mayor2:
+        if linea[0]+1 == mayor1:
+          for i in range(resta):
+            valor = str(mayor1-i-1) + ',' + str(menor2 + i)
+            puntos.append(valor)
+        else:
+          for i in range(resta):
+            valor = str(menor1 + i) + ',' + str(mayor2-i-1)
+            puntos.append(valor)
 def main():
     for linea in lineas:
         makePoints(linea)
