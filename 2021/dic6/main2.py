@@ -1,8 +1,6 @@
 import peces
-import math
 peces = peces.peces()
 pecesPerDia = [0,0,0,0,0,0,0,0,0]
-new_peces = 0
 
 def dias(cant):
     for i in range(len(peces)):
