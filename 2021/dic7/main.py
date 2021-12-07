@@ -7,9 +7,8 @@ def calculando(actual):
   return gas
 def moviendo():
   best=1e9
-  inicial.sort()
-  for num in range(inicial[len(inicial)-1]+1):
+  for num in range(max(inicial)+1):
     gasolina= calculando(num)
-    best= gasolina if gasolina < best else best
+    best=  min(gasolina, best)
   print("Result => Gasolina: ", best)
 moviendo()
