@@ -1,5 +1,5 @@
 counter=0
-with open("values.txt","r") as archivo:
+with open("2021/dic8/values.txt","r") as archivo:
   for linea in archivo:
     arrayOutputs= linea.split('|')[1].strip().split(" ")
     for comando in arrayOutputs:

@@ -1,5 +1,5 @@
 arrayOutputs = []
-with open("/home/joaquin/Documentos/Personal/afcode/2021/dic8/values.txt", "r") as archivo:
+with open("2021/dic8/values.txt", "r") as archivo:
     for linea in archivo:
         arrayOutputs.append(linea.split('|'))
 
