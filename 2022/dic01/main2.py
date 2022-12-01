@@ -7,8 +7,7 @@ with open("2022/dic01/input.txt","r") as archivo:
     else:
       if len(maxCalories) == 3:
         if caloriesByElf > maxCalories[0]:
-          maxCalories.pop(0)
-          maxCalories.append(caloriesByElf)
+          maxCalories[0] = caloriesByElf
           maxCalories.sort()
       else: maxCalories.append(caloriesByElf)
       caloriesByElf = 0
