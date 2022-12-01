@@ -1,5 +1,4 @@
-maxCalories = 0
-caloriesByElf = 0
+maxCalories, caloriesByElf = 0, 0 
 with open("2022/dic01/input.txt","r") as archivo:
   for line in archivo:
     if line != '\n':
