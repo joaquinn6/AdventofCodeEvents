@@ -5,7 +5,14 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Python: archivo actual",
+      "name": "Go file",
+      "type": "go",
+      "request": "launch",
+      "mode": "debug",
+      "program": "${file}"
+    },
+    {
+      "name": "Python file",
       "type": "python",
       "request": "launch",
       "program": "${file}",
