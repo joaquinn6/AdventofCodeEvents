@@ -16,11 +16,11 @@ func main() {
 	for _, round := range rounds {
 		switch round[1] {
 		case "X":
-			points += 1
+			points += 0
 		case "Y":
-			points += 2
-		case "Z":
 			points += 3
+		case "Z":
+			points += 6
 		}
 		points += result(round)
 		// element is the element from someSlice for where we are
@@ -34,27 +34,27 @@ func result(round []string) int {
 	case "A-X":
 		return 3
 	case "A-Y":
-		return 6
+		return 1
 	case "A-Z":
-		return 0
+		return 2
 	case "B-X":
-		return 0
+		return 1
 	case "B-Y":
-		return 3
+		return 2
 	case "B-Z":
-		return 6
-	case "C-X":
-		return 6
-	case "C-Y":
-		return 0
-	case "C-Z":
 		return 3
+	case "C-X":
+		return 2
+	case "C-Y":
+		return 3
+	case "C-Z":
+		return 1
 	}
 	return 0
 }
 
 func fileToArray() ([][]string, error) {
-	f, err := os.Open("/2022/dic02/input.txt")
+	f, err := os.Open("2022/dic02/input.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
