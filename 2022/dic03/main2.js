@@ -17,7 +17,6 @@ for (let i = 0; i<= input.length - 1; i+=3){
   const articulos = [input[i], input[i+1], input[i+2]]
   letters.push(extractLetter(articulos));
 }
-console.log(letters);
 
 let sum = 0;
 
