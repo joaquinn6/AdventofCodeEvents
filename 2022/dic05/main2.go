@@ -11,10 +11,10 @@ func main() {
 	var matriz = [][]string{{"J", "H", "P", "M", "S", "F", "N", "V"}, {"S", "R", "L", "M", "J", "D", "Q"}, {"N", "Q", "D", "H", "C", "S", "W", "B"}, {"R", "S", "C", "L"}, {"M", "V", "T", "P", "F", "B"}, {"T", "R", "Q", "N", "C"}, {"G", "V", "R"}, {"C", "Z", "S", "P", "D", "L", "R"}, {"D", "S", "J", "V", "G", "P", "B", "F"}}
 	var moves = getParameters(fileToArray())
 	for _, move := range moves {
-		for i := 1; i <= int(move.many); i++ {
-			matriz[move.to] = append(matriz[move.to], matriz[move.from][len(matriz[move.from])-1])
-			matriz[move.from] = matriz[move.from][:len(matriz[move.from])-1]
+		for i := int(move.many); i > 0; i -= 1 {
+			matriz[move.to] = append(matriz[move.to], matriz[move.from][len(matriz[move.from])-i])
 		}
+		matriz[move.from] = matriz[move.from][:len(matriz[move.from])-int(move.many)]
 	}
 
 	for _, res := range matriz {
