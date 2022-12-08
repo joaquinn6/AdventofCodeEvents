@@ -4,6 +4,7 @@
   // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
+    
     {
       "name": "Go file",
       "type": "go",
@@ -18,6 +19,14 @@
       "program": "${file}",
       "console": "integratedTerminal",
       "justMyCode": true
-    }
+    },
+    {
+      "name": "js",
+      "type": "node",
+      "request": "launch",
+      "console": "integratedTerminal",
+      "program": "${file}"
+  }
+    
   ]
 }
