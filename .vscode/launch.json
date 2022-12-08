@@ -17,14 +17,12 @@
       "type": "python",
       "request": "launch",
       "program": "${file}",
-      "console": "integratedTerminal",
       "justMyCode": true
     },
     {
       "name": "js",
       "type": "node",
       "request": "launch",
-      "console": "integratedTerminal",
       "program": "${file}"
   }
     

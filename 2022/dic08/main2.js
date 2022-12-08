@@ -13,62 +13,52 @@ inputArray.forEach((line) => {
 const yMaxIndex = matriz.length -1;
 const xMaxIndex = matriz[0].length -1;
 
-function isVisible(hight, indexes = []){
-  if (indexes.includes(0) || indexes[0] == xMaxIndex || indexes[1] == yMaxIndex){
-    return true;
-  }
-  let back = true
+function calculateEscenario(hight, indexes = []){
+  let back = 0
   for(let i = indexes[0]-1; i >=0; i-=1){
     if (matriz[indexes[1]][i] >= hight){
-      back = false
+      back += 1;
       break
     }
-  }
-  if (back) {
-    return true;
+    back += 1;
   }
 
-  let forward = true
+  let forward = 0
   for(let i = indexes[0]+1; i <=xMaxIndex; i+=1){
     if (matriz[indexes[1]][i] >= hight){
-      forward = false
+      forward +=1;
       break
     }
-  }
-  if (forward) {
-    return true;
+    forward +=1;
   }
 
-  let up = true
+  let up = 0
   for(let i = indexes[1]-1; i >=0; i-=1){
     if (matriz[i][indexes[0]] >= hight){
-      up = false
+      up += 1;
       break
     }
+    up += 1;
   }
-  if (up) {
-    return true;
-  }
-  let down = true
+  let down = 0
   for(let i = indexes[1]+1; i <=yMaxIndex; i+=1){
     if (matriz[i][indexes[0]] >= hight){
-      down = false
+      down += 1;
       break
     }
+    down+=1;
   }
-  if (down) {
-    return true;
-  }
-  return false;
+  return up * down * forward * back;
 }
 
-let visibles = 0;
+let maxEscenario = 0;
 matriz.forEach((line, indexY) => {
   line.forEach((tree, indexX) => {
-    if (isVisible(tree, [indexX, indexY])){
-      visibles += 1;
+    let escenario = calculateEscenario(tree, [indexX, indexY])
+    if (escenario > maxEscenario){
+      maxEscenario = escenario;
     }
   });
 });
 
-console.log(visibles);
+console.log(maxEscenario);
