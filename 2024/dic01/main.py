@@ -1,6 +1,6 @@
 """AoC dic 1"""
 ids_left, ids_right = list([]), list([])
-with open("2024/dic01/input.txt", "r") as archivo:
+with open("2024/dic01/input.txt", "r", encoding='utf-8') as archivo:
   for line in archivo:
     line_tuple = [int(x) for x in line.strip().split('   ')]
     ids_left.append(line_tuple[0])
