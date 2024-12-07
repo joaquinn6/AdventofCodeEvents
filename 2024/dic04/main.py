@@ -1,4 +1,4 @@
-"""AoC dic 3 v2"""
+"""AoC dic 4"""
 import re
 REGEX = r"(?=(XMAS|SAMX))"
 lines = []
